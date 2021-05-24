@@ -19,7 +19,7 @@ from weewx.cheetahgenerator import SearchList
 
 from weewx.units import ValueTuple, ValueHelper
 
-VERSION = "0.2"
+VERSION = "0.3"
 
 
 class TimeSince(SearchList):
@@ -33,7 +33,10 @@ class TimeSince(SearchList):
             row = db_manager.getSql(sql_stmt)
             val = timespan.stop - row[0] if row else None
             vt = ValueTuple(val, 'second', 'group_deltatime')
-            vh = ValueHelper(vt, formatter=self.generator.formatter, converter=self.generator.converter)
+            vh = ValueHelper(vt,
+                             context='long_delta',
+                             formatter=self.generator.formatter,
+                             converter=self.generator.converter)
             return vh
 
         def time_at(expression):
@@ -45,7 +48,9 @@ class TimeSince(SearchList):
             row = db_manager.getSql(sql_stmt)
             val = row[0] if row else None
             vt = ValueTuple(val, 'unix_epoch', 'group_time')
-            vh = ValueHelper(vt, formatter=self.generator.formatter, converter=self.generator.converter)
+            vh = ValueHelper(vt,
+                             formatter=self.generator.formatter,
+                             converter=self.generator.converter)
             return vh
 
         return [{
