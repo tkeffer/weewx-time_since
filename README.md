@@ -4,7 +4,7 @@ or how long since it evaluated true.
 
 Example:
 
-    <p>It last rained at $time_at('rain>0') ($time_since('rain>0') ago).</p>
+    <p>It last rained at $time_at('rain>0') ($time_since('rain>0').long_form ago).</p>
 
 would result in
 
@@ -44,6 +44,6 @@ I have added it to the table in the `current.inc` module.
    ```
     <tr>
         <td class="label">$obs.label.last_rain</td>
-        <td class="data">$time_at('rain>0')<br/>$time_since('rain>0') ago</td>
+        <td class="data">$time_at('rain>0')<br/>$time_since('rain>0').long_form ago</td>
     </tr>
     ```

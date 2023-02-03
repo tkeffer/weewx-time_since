@@ -19,7 +19,7 @@ from weewx.cheetahgenerator import SearchList
 
 from weewx.units import ValueTuple, ValueHelper
 
-VERSION = "0.3"
+VERSION = "0.4"
 
 
 class TimeSince(SearchList):
