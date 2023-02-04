@@ -1,5 +1,5 @@
 #
-#    Copyright (c) 2020 Tom Keffer <tkeffer@gmail.com>
+#    Copyright (c) 2023 Tom Keffer <tkeffer@gmail.com>
 #
 #    See the file LICENSE.txt for your full rights.
 #
@@ -34,7 +34,7 @@ class TimeSince(SearchList):
             val = timespan.stop - row[0] if row else None
             vt = ValueTuple(val, 'second', 'group_deltatime')
             vh = ValueHelper(vt,
-                             context='long_delta',
+                             context='month',
                              formatter=self.generator.formatter,
                              converter=self.generator.converter)
             return vh
