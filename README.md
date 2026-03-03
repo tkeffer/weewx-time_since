@@ -14,7 +14,7 @@ would result in
 It is possible to use alternative data bindings by specifying it as the second
 parameter to the `time_since` and `time_at` tags.
 
-    <p>It last rained at $time_at('rain>0', alt_binding) ($time_since('rain>0', alt_binding).long_form ago).</p>
+    <p>It last rained at $time_at('rain>0', 'alt_binding') ($time_since('rain>0', 'alt_binding').long_form ago).</p>
 
 
 ## Installation
