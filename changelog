@@ -1,3 +1,6 @@
+1.0 02mar26
+* Allow a data binding to be specified.
+
 0.5 04feb23
 * Set context to 'month'
 

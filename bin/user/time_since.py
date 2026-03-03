@@ -1,5 +1,5 @@
 #
-#    Copyright (c) 2023 Tom Keffer <tkeffer@gmail.com>
+#    Copyright (c) 2026 Tom Keffer <tkeffer@gmail.com>
 #
 #    See the file LICENSE.txt for your full rights.
 #
@@ -24,9 +24,9 @@ VERSION = "0.4"
 
 class TimeSince(SearchList):
     def get_extension_list(self, timespan, db_lookup):
-        def time_since(expression):
+        def time_since(expression, data_binding=None):
             """Time since a sql expression evaluted true"""
-            db_manager = db_lookup()
+            db_manager = db_lookup(data_binding=data_binding)
             sql_stmt = "SELECT dateTime FROM %s WHERE %s AND dateTime <= %d ORDER BY dateTime DESC LIMIT 1" \
                        % (db_manager.table_name, expression, timespan.stop)
 
@@ -39,9 +39,9 @@ class TimeSince(SearchList):
                              converter=self.generator.converter)
             return vh
 
-        def time_at(expression):
+        def time_at(expression, data_binding=None):
             """When an sql expression evaluated true"""
-            db_manager = db_lookup()
+            db_manager = db_lookup(data_binding=data_binding)
             sql_stmt = "SELECT dateTime FROM %s WHERE %s AND dateTime <= %d ORDER BY dateTime DESC LIMIT 1" \
                        % (db_manager.table_name, expression, timespan.stop)
 
